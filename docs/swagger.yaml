@@ -1,0 +1,82 @@
+definitions:
+  inputters.RoleInput:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /role:
+    post:
+      description: Creating a new Role.
+      parameters:
+      - description: the body to create a new Role
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/inputters.RoleInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: Create New Role.
+      tags:
+      - Role
+    put:
+      description: Update Existing Role.
+      parameters:
+      - description: Role id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: the body to update Role
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/inputters.RoleInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: Update Role.
+      tags:
+      - Role
+  /roles:
+    get:
+      description: Get a list of Roles.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: Get all Roles.
+      tags:
+      - Role
+  /roles-with-users:
+    get:
+      description: Get a list of Roles and the Users.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: Get all Roles with Users.
+      tags:
+      - Role
+swagger: "2.0"
