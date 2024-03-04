@@ -60,6 +60,8 @@ func SetupRouter(db *gorm.DB) *gin.Engine {
 	cartRoute.PUT("/update-cart", controllers.UpsertCart)
 	cartRoute.GET("/user-cart", controllers.GetUserCart)
 
+	r.POST("/upload", controllers.Upload)
+
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	return r
